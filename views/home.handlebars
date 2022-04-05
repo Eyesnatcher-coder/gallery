@@ -1,0 +1,37 @@
+<div class="container">
+    <br>
+    <h1 class="text-center">Gallery</h1>
+    <br>
+
+    {{#if success}}
+
+        <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">
+                &times;
+            </a>
+            <strong>Success!</strong>Your Image File is Uploaded
+        </div>
+
+    {{/if}}
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="Select Image">Select Image:</label>
+            <input type="file" class="form-control" required name="image" id="">
+        </div>
+        <br>
+        <div class="form-group">
+          
+          <button type="submit" class="btn btn-block btn-danger">Upload Image</button>
+        </div>
+    </form>
+
+    {{#each records}}
+
+        {{#each this}}
+
+            <img src="{{this.imagename}}" class="image-thumbnail" style="width: 350px; box-shadow: 0px 0px 5px rgb(0, 0, 0)" alt="">
+
+        {{/each}}
+
+    {{/each}}
+</div>
